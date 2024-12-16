@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Movie } from '../../models/movie.model';
+import { MovieService } from '../../services/movie.service';
+import { FormsModule } from '@angular/forms';
+import { MovieThumbnailComponent } from '../../components/movie-thumbnail/movie-thumbnail.component';
 
 @Component({
   selector: 'app-movie-list-page',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, MovieThumbnailComponent],
   templateUrl: './movie-list-page.component.html',
-  styleUrl: './movie-list-page.component.scss'
+  styleUrl: './movie-list-page.component.scss',
 })
 export class MovieListPageComponent implements OnInit {
+  private movieService = inject(MovieService);
   movies: Movie[] = [];
   searchQuery: string = '';
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   loadPopularMovies() {
     this.movieService.getPopularMovies().subscribe((data: any) => {
@@ -23,9 +26,11 @@ export class MovieListPageComponent implements OnInit {
 
   searchMovies() {
     if (this.searchQuery.trim()) {
-      this.movieService.searchMovies(this.searchQuery).subscribe((data: any) => {
-        this.movies = data;
-      });
+      this.movieService
+        .searchMovies(this.searchQuery)
+        .subscribe((data: any) => {
+          this.movies = data;
+        });
     } else {
       this.loadPopularMovies();
     }

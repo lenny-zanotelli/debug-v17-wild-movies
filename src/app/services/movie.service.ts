@@ -1,35 +1,39 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Movie } from '../models/movie.model';
+import { environment } from '../../environments/environment.development';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MovieService {
-
-  private baseUrl = 'https://api.themoviedb.org/3';
+  private http = inject(HttpClient);
   private options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer Bearer TON_JETON_ACCESS'
-    }
+      Authorization: environment.apiKey,
+    },
   };
 
   private favorites: Movie[] = [];
 
   // Récupérer les films populaires
   getPopularMovies(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/movie/popular`, this.options);
+    return this.http.get(`${environment.baseUrl}/movie/popular`, this.options);
   }
 
   getMovieDetails(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/movie/${id}`, this.options);
+    return this.http.get(`${environment.baseUrl}/movie/${id}`, this.options);
   }
 
   // Rechercher des films par titre
   searchMovies(query: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/search/movie?query=${query}`, this.options);
+    return this.http.get(
+      `${environment.baseUrl}/search/movie?query=${query}`,
+      this.options
+    );
   }
 
   addToFavorites(movie: Movie) {
