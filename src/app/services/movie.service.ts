@@ -20,14 +20,11 @@ export class MovieService {
   private favorites: Movie[] = [];
 
   // Récupérer les films populaires
-  getPopularMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(
-      `${environment.baseUrl}/movie/popular`,
-      this.options
-    );
+  getPopularMovies(): Observable<any> {
+    return this.http.get(`${environment.baseUrl}/movie/popular`, this.options);
   }
 
-  getMovieDetails(id: number): Observable<Movie> {
+  getMovieDetails(id: number): Observable<any> {
     return this.http.get<Movie>(
       `${environment.baseUrl}/movie/${id}`,
       this.options
@@ -35,8 +32,8 @@ export class MovieService {
   }
 
   // Rechercher des films par titre
-  searchMovies(query: string): Observable<Movie> {
-    return this.http.get<Movie>(
+  searchMovies(query: string): Observable<any> {
+    return this.http.get(
       `${environment.baseUrl}/search/movie?query=${query}`,
       this.options
     );

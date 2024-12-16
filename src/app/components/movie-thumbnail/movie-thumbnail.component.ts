@@ -27,7 +27,7 @@ export class MovieThumbnailComponent {
     this.toggleFavorite.emit();
   }
 
-  navigateToDetails(id: number) {
-    this.router.navigate(['/movies', id]);
+  navigateToDetails() {
+    this.router.navigate(['/movies', this.movie.id]);
   }
 }

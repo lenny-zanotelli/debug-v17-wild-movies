@@ -3,12 +3,10 @@
 
   <div class="movie-grid">
     @for (movie of favorites; track $index) {
-      <app-movie-thumbnail
-        [movie]="movie"
-        (toggleFavorite)="toggleFavorite(movie)"
-      ></app-movie-thumbnail>
-      }
-        <p class="empty-message">You have no favorites yet. Start adding some movies!</p>
+    <app-movie-thumbnail [movie]="movie" (toggleFavorite)="toggleFavorite(movie)"></app-movie-thumbnail>
+    } @empty {
+    <p class="empty-message">You have no favorites yet. Start adding some movies!</p>
+    }
   </div>
-  
+
 </div>
