@@ -13,7 +13,7 @@ export class MovieService {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: environment.apiKey,
+      Authorization: `Bearer ${environment.apiKey}`,
     },
   };
 
