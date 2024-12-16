@@ -16,11 +16,13 @@ export class MovieListPageComponent implements OnInit {
   movies: Movie[] = [];
   searchQuery: string = '';
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loadPopularMovies();
+  }
 
-  loadPopularMovies() {
+  loadPopularMovies(): void {
     this.movieService.getPopularMovies().subscribe((data: any) => {
-      this.movies = data;
+      this.movies = data.results;
     });
   }
 
@@ -29,7 +31,7 @@ export class MovieListPageComponent implements OnInit {
       this.movieService
         .searchMovies(this.searchQuery)
         .subscribe((data: any) => {
-          this.movies = data;
+          this.movies = data.results;
         });
     } else {
       this.loadPopularMovies();

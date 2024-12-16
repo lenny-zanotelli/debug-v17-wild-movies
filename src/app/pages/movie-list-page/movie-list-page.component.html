@@ -8,6 +8,8 @@
     @for (movie of movies; track movie.id) {
     <app-movie-thumbnail [movie]="movie" [isFavorite]="isFavorite(movie.id)"
       (toggleFavorite)="toggleFavorite(movie)"></app-movie-thumbnail>
+    } @empty {
+    <p>Aucun film présent</p>
     }
   </div>
 </div>

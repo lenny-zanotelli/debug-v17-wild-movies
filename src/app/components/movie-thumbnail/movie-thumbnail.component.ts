@@ -1,7 +1,9 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from '../../models/movie.model';
+
 import { MovieService } from '../../services/movie.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-movie-thumbnail',
