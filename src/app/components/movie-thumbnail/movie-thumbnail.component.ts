@@ -1,7 +1,6 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from '../../models/movie.model';
-import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-movie-thumbnail',
@@ -16,7 +15,6 @@ export class MovieThumbnailComponent {
   @Output() toggleFavorite = new EventEmitter<void>();
 
   private router: Router = inject(Router);
-  private movieService: MovieService = inject(MovieService);
 
   ngOnInit() {
     this.isFavorite = this.movieService.isFavorite(this.movie.id);
@@ -27,6 +25,6 @@ export class MovieThumbnailComponent {
   }
 
   navigateToDetails() {
-    this.router.navigate(['/movies', this.movie.id]);
+    this.router.navigate();
   }
 }

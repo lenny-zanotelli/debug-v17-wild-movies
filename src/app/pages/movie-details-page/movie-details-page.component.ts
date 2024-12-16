@@ -1,6 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { MovieService } from '../../services/movie.service';
+import { Component } from '@angular/core';
 import { Movie } from '../../models/movie.model';
 
 @Component({
@@ -11,8 +9,6 @@ import { Movie } from '../../models/movie.model';
   styleUrl: './movie-details-page.component.scss'
 })
 export class MovieDetailsPageComponent {
-  private route = inject(ActivatedRoute);
-  private movieService = inject(MovieService);
   movie!: Movie;
 
   constructor() {
