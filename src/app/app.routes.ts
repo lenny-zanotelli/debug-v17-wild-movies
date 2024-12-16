@@ -1,3 +1,10 @@
 import { Routes } from '@angular/router';
+import { MovieListPageComponent } from './pages/movie-list-page/movie-list-page.component';
+import { MovieDetailsPageComponent } from './pages/movie-details-page/movie-details-page.component';
+import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  { path: '', component: MovieListPageComponent },
+  { path: 'movies/:id', component: MovieDetailsPageComponent },
+  { path: 'favorites', component: FavoritesPageComponent },
+];

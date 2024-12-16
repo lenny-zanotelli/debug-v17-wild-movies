@@ -1,0 +1,21 @@
+<div class="movie-list">
+  <div class="search-bar">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      (keyup.enter)="searchMovies()"
+      placeholder="Search for a movie..."
+    />
+    <button (click)="searchMovies()">Search</button>
+  </div>
+
+  <div class="movie-grid">
+    @for (movie of movies; track $index) {
+      <app-movie-thumbnail
+        [movie]="movie"
+        [isFavorite]="isFavorite(movie.id)"
+        (toggleFavorite)="toggleFavorite(movie)"
+      ></app-movie-thumbnail>
+    }
+  </div>
+</div>

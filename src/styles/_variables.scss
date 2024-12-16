@@ -1,0 +1,55 @@
+// Couleurs noir et blanc
+$primary-color: #000;        // Noir
+$secondary-color: #fff;      // Blanc
+$background-color: #f8f8f8;  // Gris clair pour l'arrière-plan
+$text-color: #333;           // Gris foncé
+$hover-color: #444;          // Gris foncé pour hover
+
+// Styles des boutons
+$button-bg-color: #000;      // Noir pour le bouton
+$button-hover-bg: #444;      // Gris foncé au hover
+$button-text-color: #fff;    // Blanc pour le texte
+
+// Marges et tailles
+$padding: 12px;
+$margin: 8px;
+$border-radius: 5px;
+$image-max-width: 200px; // Taille maximale des posters
+
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+
+// Mixins
+@mixin center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button-style($bg-color, $hover-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  border-radius: $border-radius;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+@mixin grid-layout($columns) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($columns, 1fr));
+  gap: $margin;
+}
+
+@mixin center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,54 @@
+@use '../../../styles/variables' as *;
+
+.movie-thumbnail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background-color: $secondary-color;
+  border: 1px solid $text-color;
+  border-radius: $border-radius;
+  padding: $padding;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  img {
+    max-width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: $border-radius;
+    cursor: pointer;
+  }
+
+  h3 {
+    margin: $margin 0;
+    font-size: 1rem;
+    color: $text-color;
+  }
+
+  button {
+    background-color: $primary-color;
+    color: $secondary-color;
+    padding: 8px 12px;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+  }
+
+  .no-image {
+    width: 100%;
+    height: 300px;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $border-radius;
+  }
+}
