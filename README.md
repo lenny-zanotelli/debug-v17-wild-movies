@@ -53,12 +53,7 @@ private options = {
 
 ### Étape 1 : Cloner le projet cassé
 
-Clone le dépôt Git contenant l'application Angular "cassée" :
-
-```bash
-git clone https://github.com/votre-repo/angular-tmdb-debug.git
-cd angular-tmdb-debug
-```
+Clone le dépôt Git contenant l'application Angular "cassée".
 
 ---
 
